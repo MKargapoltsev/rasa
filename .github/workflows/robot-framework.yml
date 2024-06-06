@@ -24,25 +24,10 @@ jobs:
         - name: Publish test reports
           uses: actions/upload-artifact@v2
           with:
-            name: robot-test-reports
+            name: reports
             path: reports
 
-    test:
-        runs-on: ubuntu-20.04
-        steps:
-        - uses: actions/checkout@v2
-        - name: Execute tests
-          uses: joonvena/robotframework-docker-action@v1.0
-        - name: Upload test results
-          uses: actions/upload-artifact@v1
-          if: always()
-          with:
-            name: reports
-            path: tests/reports
-    
-    generate_report:
-        if: always()
-        needs: [test] 
+    Generate-report:
         runs-on: ubuntu-20.04
         steps:
         - uses: actions/checkout@v2
@@ -51,6 +36,6 @@ jobs:
           with:
             name: reports
         - name: Send report to commit
-          uses: joonvena/robotframework-reporter-action@v2.4
+          uses: joonvena/robotframework-reporter-action@v2
           with:
             gh_access_token: ${{ secrets.GITHUB_TOKEN }}
