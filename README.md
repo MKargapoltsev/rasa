@@ -15,3 +15,8 @@ pip3 install -r requirements.txt
 ```
 brew install task
 ```
+
+**Test execution**
+```
+python -m robot --outputdir reports tests
+```

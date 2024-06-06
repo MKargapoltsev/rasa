@@ -165,3 +165,6 @@ stdout.txt
 tests/test_taskwarrior.robot
 results/.DS_Store
 .DS_Store
+log.html
+output.xml
+report.html
