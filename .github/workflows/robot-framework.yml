@@ -20,15 +20,15 @@ jobs:
               sudo apt-get install taskwarrior -y
               task rc.confirmation=off version
         - name: Run Test
-          run: python -m robot --outputdir results tests
-        - name: Publish test results
+          run: python -m robot --outputdir reports tests
+        - name: Publish test reports
           uses: actions/upload-artifact@v2
           with:
-            name: robot-test-results
-            path: results
+            name: robot-test-reports
+            path: reports
 
     test:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-20.04
         steps:
         - uses: actions/checkout@v2
         - name: Execute tests
@@ -38,12 +38,12 @@ jobs:
           if: always()
           with:
             name: reports
-            path: reports
+            path: tests/reports
     
     generate_report:
         if: always()
         needs: [test] 
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-20.04
         steps:
         - uses: actions/checkout@v2
         - name: Download reports
