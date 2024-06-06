@@ -11,9 +11,14 @@ jobs:
     Run-Test:
       runs-on: ubuntu-20.04
       steps:
+        - name: Checkout repository
+          uses: actions/checkout@v1
         - name: Install pip dependencies
-          run: |
-            pip3 install -r requirements.txt
+          run: pip3 install -r requirements.txt
+        - name: Install Task Warrior
+          run: | 
+              sudo apt-get install taskwarrior -y
+              yes | task list
         - name: Run Test
           run: python -m robot --outputdir results testcases/functional_tests
         - name: Run Test and create report
