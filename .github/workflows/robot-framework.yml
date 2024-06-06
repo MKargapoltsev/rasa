@@ -18,7 +18,7 @@ jobs:
         - name: Install Task Warrior
           run: | 
               sudo apt-get install taskwarrior -y
-              yes | task list
+              echo 'yes' | task list
         - name: Run Test
           run: python -m robot --outputdir results testcases/functional_tests
         - name: Run Test and create report
