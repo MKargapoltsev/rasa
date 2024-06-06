@@ -21,16 +21,6 @@ jobs:
               task rc.confirmation=off version
         - name: Run Test
           run: python -m robot --outputdir results tests
-        - name: Run Test and create report
-          run: python -m robot -d reports -x report.xml "tests"
-        - name: Run Robot Framework tests and generate report
-          run: |
-             echo "ROBOT_RC=$?" >> "$GITHUB_ENV"  
-        # - name: If Auto Test Pass Rate Not 100%, Job Will Fail
-        #   if: env.ROBOT_RC != '0'
-        #   run: |
-        #     echo "Auto Test Pass Rate Not 100%, Please Check Test Result"
-        #     exit 1
         - name: Publish test results
           uses: actions/upload-artifact@v2
           with:
