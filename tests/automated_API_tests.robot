@@ -17,7 +17,7 @@ Get a Single Cart
     # Log To Console    ${response.json()['id']}
     Should Be Equal As Strings     ${response.json()['id']}    5
 
-Get User Cart
+Get an User Cart
     [Documentation]    
     ${response}=     GET On Session  session    url=/carts?userId=1
     Status Should Be    OK 

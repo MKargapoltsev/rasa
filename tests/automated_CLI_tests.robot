@@ -17,12 +17,14 @@ Create Task 1    add    priority:H    Pay bills    Created task
 Create Task 2    add    Pay the rent     due:eom   Created task 
 Create Task 3    add    project:Home.Kitchen    Clean the floor    Created task
 Create Task 4    add    project:Home.Garden    Plant the bulbs    Created task
-Modify Task    3    modify    priority:L    Modified
+Create Task 5    add     project:Home.Kitchen    Replace broken light bulb    Created task
+Modify Task 3    3    modify    priority:L    Modified
 
 Task Count
     [Template]    The count of ${filter} should be exactly ${output}
-    project:Home.Kitchen    1
-    project:Home    2
+    project:Home.Kitchen    2
+    project:Home.Garden    1
+    project:Home    3
 
 Complete Tasks
     [Template]    The task number ${filter} should be ${output}
