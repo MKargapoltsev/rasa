@@ -1,5 +1,4 @@
 *** Settings ***                                                                                       
-Library    Collections                                                                                 
 Library    RequestsLibrary
                                                                                                        
 Suite Setup    Create Session    session    ${BASE_URL}    disable_warnings=True

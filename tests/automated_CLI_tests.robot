@@ -1,7 +1,10 @@
 *** Settings ***
 Documentation     For test automation examples I chose the data-driven testing approach.
 ...               The _data-driven_ style works well when you need to repeat
-...               the same workflow multiple times as we have in our case.
+...               the same workflow multiple times exactly as we have in our case.
+...
+...               Taskwarrior general form of the syntax:
+...               task [<filter>] [<command>] [<modifications>] [<miscellaneous>]
 ...
 ...               Also test templates with embedded arguments are used for 
 ...               task count and complete task tests.
@@ -34,13 +37,13 @@ Complete Tasks
 *** Keywords ***
 Execute
     [Arguments]    ${Command}    ${Filter}    ${modifications}    ${output}
-    ${result} =    Run Process    ${APP}    ${Command}    ${Filter}    ${modifications}    stdout=stdout.txt
+    ${result} =    Run Process    ${APP}    ${Command}    ${Filter}    ${modifications}
     Should Contain    ${result.stdout}    ${output}
 
 The count of ${filter} should be exactly ${output}
-    ${result} =    Run Process    ${APP}    ${filter}    count   stdout=stdout.txt
+    ${result} =    Run Process    ${APP}    ${filter}    count
     Should Be Equal    ${result.stdout}    ${output}
 
 The task number ${filter} should be ${output}
-    ${result} =    Run Process    ${APP}    ${Filter}    done    stdout=stdout.txt
+    ${result} =    Run Process    ${APP}    ${Filter}    done
     Should Contain    ${result.stdout}    ${output}
