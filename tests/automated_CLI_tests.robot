@@ -8,9 +8,9 @@ Documentation     For test automation examples I chose the data-driven testing a
 ...
 ...               Also test templates with embedded arguments are used for 
 ...               task count and complete task tests.
+Library    Process
 
 Test Template     Execute
-Library    Process
 
 *** Variables ***
 ${APP}    task
