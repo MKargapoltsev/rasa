@@ -23,4 +23,8 @@ ${USER_LASTNAME}                 doe
 ${USER_PHONE_NUMBER}             1-570-236-7033
 
 ${UNIQUE_PRODUCTS}               3
-${OVERALL_PRODUCTS}              11 
+${OVERALL_PRODUCTS}              11
+
+${INVALID_CART_ID}               test
+${INVALID_ID_STATUS}             error
+${INVALID_ID_MESSAGE}            cart id should be provided

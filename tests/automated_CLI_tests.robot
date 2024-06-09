@@ -20,13 +20,13 @@ Create Task 4         add        project:Home.Garden     Plant the bulbs        
 Create Task 5         add        project:Home.Kitchen    Replace broken light bulb    Created task
 Modify Task 3         3          modify                  priority:L                   Modified
 
-Task Count
+Task count
     [Template]        The count of ${filter} should be exactly ${output}
                                    project:Home.Kitchen            2
                                    project:Home.Garden             1
                                    project:Home                    3
 
-Complete Tasks
+Complete tasks
     [Template]        The task number ${filter} should be ${output}
                                           3               Completed
                                           4               Completed

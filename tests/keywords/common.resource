@@ -86,3 +86,26 @@ Check UserID for the cart
     [Documentation]             Comparing the contents of JSON with the expected value
     [Arguments]                 ${ID}
     Should Be Equal As Strings  ${response.json()['userId']}               ${ID}
+
+GET cart by invalid _id
+    [Documentation]             Get response for an invalid cart request
+    [Arguments]                 ${ID}
+    ${response}=                GET On Session    session                  /carts/${ID}    expected_status=anything 
+    Log                         ${response}
+    Set Test Variable           ${response}
+
+Check response code is Bad Request
+    [Documentation]             Checking that response status code is 400
+    [Arguments]                 ${CODE}
+    Status Should Be            ${CODE}                                    ${response}
+
+Check response code error status
+    [Documentation]             Comparing the contents of JSON with the expected value of error status
+    [Arguments]                 ${STATUS}
+    Should Be Equal             ${response.json()['status']}              ${STATUS}
+
+
+Check response code error message
+    [Documentation]             Comparing the contents of JSON with the expected value of error message
+    [Arguments]                 ${MESSAGE}
+    Should Be Equal             ${response.json()['message']}              ${MESSAGE}
