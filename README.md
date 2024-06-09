@@ -112,9 +112,10 @@ rasa
 ### Files description
 | file path  | description |
 | ------------- | ------------- |
+| .github/workflows/robot-framework.yml | Git Actions YAML file for CI |
+| keywords/common.resource  | robot framework resource file that contains all keywords implementation that needed to run the tests  |
 | tests/automated_API_tests.robot  | robot frework test file that contains automated CLI tests  |
 | tests/automated_CLI_tests.robot  | robot frework test file that contains automated API tests  |
-| keywords/common.resource  | robot framework resource file that contains all keywords implementation that needed to run the tests  |
 | general.resource  | resoruce file that contains libraries, variables and test data   |
 | README.md  | document that contains all important information about tech task implementation |
 | requirements.txt  | this file contains everything needs to be installed for test execution  |
