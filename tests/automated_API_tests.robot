@@ -1,5 +1,8 @@
 *** Settings ***
 Documentation     For Rest API test automation examples classic KDD approach is selected.
+...
+...               RequestsLibrary that is wrapper of the well known Python Requests Library
+...               is taking care of Rest API interaction handling.
 Resource          general.resource
 
 Suite Setup       Create Session    session    ${BASE_URL}    disable_warnings=True
