@@ -11,6 +11,12 @@
   - [Future Improvements](#future-improvements)
 
 ## Tech task analysis
+Hello Rasa engineering team!
+
+First of all, thank you for the interesting technical tasks.
+
+I haven't come across Pytest very often in my work, although I have some experience writing tests using Pytest in my [personal project](https://github.com/MKargapoltsev/python-blockchain/tree/main/backend/tests). But to develop this task, I chose the Robot Framework, which is surprisingly good and fits well here since it will be possible to solve 2 diverse tasks (CLI and Rest API test automation) using only 1 external library (RequestsLibrary) to handle HTTP requests.
+
 In this section you can find the results of the brainstorm session and a description of some ideas for test scenarios for automation, which I came to after briefly familiarizing myself with the provided applications.
 
 ### Part 1: Automating the CLI application
@@ -82,7 +88,9 @@ In this section you can find the results of the brainstorm session and a descrip
 5. Verify error handling implementation, absense of exceptions, HTTP status codes 2xx, 3xx, 4xx, 5xx implementation
 6. Verify valid data ranges for Integers and Floats. Using Equivalence Partitioning and full boundary value analysis test design techniques.
 7. Verify required and optional path and queue fields (userId, limit, etc)
-8. Validate JSON responses against original JSON schema 
+8. Validate JSON responses against original JSON schema
+
+Implementation of few tests from this list you can find in this repository.
 
 ## Project structure
 ```bash
