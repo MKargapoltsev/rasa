@@ -102,40 +102,39 @@ rasa
 ```
 ## Installation
 Clone the git repository with tech task locally
-```
+```bash
 git clone https://github.com/MKargapoltsev/rasa.git
 ```
 > Create and activate the virtual environment
-```
-python3 -m venv rasa-env
+```bash
+python -m venv rasa-env
 source rasa-env/bin/Activate
 ```
-
 > Install all packages
-```
-pip3 install -r requirements.txt
+```bash
+pip install -r requirements.txt
 ```
 >  Install Task warrior
-```
+```bash
 brew install task
 ```
-## How to test
+## How to run tests
 > test execution of all tests
-```
+```bash
 python -m robot --outputdir reports tests
 ```
 > test execution of API tests only
-```
+```bash
 python -m robot --outputdir reports tests/automated_API_tests.robot
 ```
 > test execution of CLI tests only
-```
+```bash
 python -m robot --outputdir reports tests/automated_CLI_tests.robot
 ```
 > [!NOTE]
-> On second execution some CLI tests fails, because task count will be changed
-> to avoid such cases you use erase taskwarrior DB on virtual env using:
-```
+> On second execution some CLI tests will fail, because task count will be changed.
+> To avoid such cases you use can erase taskwarrior DB on virtual env using:
+```bash
 rm ~/.task/taskchampion.sqlite3
 ```
 
