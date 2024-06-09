@@ -115,10 +115,11 @@ rasa
 Clone the git repository with tech task locally
 ```bash
 git clone https://github.com/MKargapoltsev/rasa.git
+cd rasa
 ```
 > Create and activate the virtual environment
 ```bash
-python -m venv rasa-env
+python3 -m venv rasa-env
 source rasa-env/bin/Activate
 ```
 > Install all packages
@@ -128,6 +129,10 @@ pip install -r requirements.txt
 >  Install Task warrior
 ```bash
 brew install task
+```
+>  If Task warrior app is newly installed laubch it first time manually to init DB and type 'yes' in confirmation field
+```bash
+task
 ```
 ## How to run tests
 > test execution of all tests
