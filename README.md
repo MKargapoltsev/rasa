@@ -130,7 +130,7 @@ pip install -r requirements.txt
 ```bash
 brew install task
 ```
->  If Task warrior app is newly installed laubch it first time manually to init DB and type 'yes' in confirmation field
+>  If Task warrior app is newly installed - launch it first time manually to init DB and type 'yes' in confirmation field
 ```bash
 task
 ```
