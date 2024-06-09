@@ -2,8 +2,7 @@
 -----------------------
 - [Technical task description](https://gist.github.com/sanchariGr/fa0e655ed27f3810e720ac85bbecf31b)
 
-## Context table
-> Index `README`.
+## Table of contents:
   - [Tech task analysis](#tech-task-analysis)
   - [Project structure](#project-structure)
   - [Installation](#installation)
@@ -11,26 +10,26 @@
   - [Future Improvements](#future-improvements)
 
 ## Tech task analysis
-Here you can find the results of the brainstorm session and a description of some ideas for test scenarios for automation, which I came to after briefly familiarizing myself with the provided applications.
+In this section you can find the results of the brainstorm session and a description of some ideas for test scenarios for automation, which I came to after briefly familiarizing myself with the provided applications.
 
 ### Part 1: Automating the CLI application
 
-1. Simple ‘happy path’ test cases for smoke testing to ensure that product not broken and launches with no major issues.
-    1. Task add Plan your day // check that task app returned confirmation that the task has been successfully added
+1. Simple ‘happy path’ test cases for smoke testing to ensure that product is not broken and can be launched with no major issues.
+    1. Task add Plan your day // _check that task app returns confirmation that the task has been successfully added_
     2. Task list // _check that just added task is here in the task list_
-    3. Task Plan your day done // _check that task app returned confirmation that the task has been successfully completed_
-    4. Task list // _check that just completed task is NOT present in the task list_
+    3. Task Plan your day done // _check that task app returns confirmation that the task has been successfully completed_
+    4. Task list // _check that the just completed task is NOT present in the task list_
 2. Expand smoke test cases that affect/touch more functional areas of the product code to check that the product as a whole, at the integration level, runs without major issues.
     1. Extend commands usage by adding following commands to tests - modify, delete, count.
     2. Add filters - project, end, entry.
     3. Add modifications - priority, tags add/delete
     4. Add miscellaneous arguments - show
-3. Cover ‘task’ entity life cycle workflows using State Transition test design technic. Possible task states: pending, waiting, recurring, deleted, completed.
-4. Add real life end-to-end user scenarios as end-to-end test cases
+3. Cover ‘task’ entity life cycle workflows using State Transition test design technique. Possible task states: pending, waiting, recurring, deleted, completed.
+4. Add real life end-to-end user scenarios as end-to-end automated tests
 
 ### Part 2: Automating REST API endpoints
 
-1. Simple ‘happy path’ test cases for smoke testing to ensure that product not broken and launches with no major issues.
+1. Simple ‘happy path’ test cases for smoke testing to ensure that product is not broken and can be launched with no major issues.
 2. As a smoke check of the RestAPI service check that basis routes are accessible, returns status code 200 and all HTTP methods are still supported. 
     1. GET /products
     2. GET /products/1
@@ -44,43 +43,43 @@ Here you can find the results of the brainstorm session and a description of som
     10. DELETE /products/1
 3. Cover in test automation all 4 main resource types and all Rest API end points with functional tests
     1. Products
-        1. Get all products
-        2. Get a single product
-        3. Limit results
-        4. Sort results
-        5. Get all categories
-        6. Get in category
-        7. Add new product
-        8. Update a product
-        9. Delete a product
+        - Get all products
+        - Get a single product
+        - Limit results
+        - Sort results
+        - Get all categories
+        - Get in category
+        - Add new product
+        - Update a product
+        - Delete a product
     2. Carts
-        1. Get all
-        2. Get a single
-        3. Limit results
-        4. Sort results
-        5. get in date range
-        6. get user cart
-        7. Add new cart
-        8. Update a cart
-        9. Delete a cart
+        - Get all
+        - Get a single
+        - Limit results
+        - Sort results
+        - get in date range
+        - get user cart
+        - Add new cart
+        - Update a cart
+        - Delete a cart
     3. Users
-        1. Get all
-        2. Get a single
-        3. Limit results
-        4. Sort results
-        5. Add
-        6. Update
-        7. Delete
+        - Get all
+        - Get a single
+        - Limit results
+        - Sort results
+        - Add
+        - Update
+        - Delete
     4. Login token
-        1. User login
+        - User login
 4. Add real life end-to-end user scenarios as end-to-end test cases
     1. User login
-    2. Search for needed product with using category and results sorting
+    2. Search for needed products with using category and results sorting
     3. Add products to the shopping cart
     4. Update the shopping cart
     5. And etc.
 5. Verify error handling implementation, absense of exceptions, HTTP status codes 2xx, 3xx, 4xx, 5xx implementation
-6. Verify valid data ranges for Integers and Floats. Using Equivalence Partitioning and full boundary value analysis test design technics.
+6. Verify valid data ranges for Integers and Floats. Using Equivalence Partitioning and full boundary value analysis test design techniques.
 7. Verify required and optional path and queue fields (userId, limit, etc)
 8. Validate JSON responses against original JSON schema 
 
@@ -102,8 +101,13 @@ rasa
 ├── requirements.txt
 ```
 ## Installation
-> Activate the virtual environment
+Clone the git repository with tech task locally
 ```
+git clone https://github.com/MKargapoltsev/rasa.git
+```
+> Create and activate the virtual environment
+```
+python3 -m venv rasa-env
 source rasa-env/bin/Activate
 ```
 
@@ -116,13 +120,37 @@ pip3 install -r requirements.txt
 brew install task
 ```
 ## How to test
-> test execution
+> test execution of all tests
 ```
 python -m robot --outputdir reports tests
 ```
+> test execution of API tests only
+```
+python -m robot --outputdir reports tests/automated_API_tests.robot
+```
+> test execution of CLI tests only
+```
+python -m robot --outputdir reports tests/automated_CLI_tests.robot
+```
+> [!NOTE]
+> On second execution some CLI tests fails, because task count will be changed
+> to avoid such cases you use erase taskwarrior DB on virtual env using:
+```
+rm ~/.task/taskchampion.sqlite3
+```
+
 ## Future Improvements
-- Extend data driven approach with CSV/XLS files suport on located on cloud storage
-- Add task deletion helper that handles addition STDIN with conformation/decline to delete
-- Handle tests Pre- and Post- conditions, e.g. tasks/DB deletion as post steps (low priority since execution env on CI will be newly created and deleted after test execution )
-- Add robot test reports injection for commits used into main branch. Re-enable generate report Git action when current issue (cannot parse "" as "2006") in robotframework-reporter-action action will be fixed.
-- Improve tests reports quality by adding Allure report https://allurereport.org/docs/robotframework/
+### CLI part
+- Add task deletion helper that handles addition STDIN with confirm/decline to delete
+- Add keyword step that accepts any number of arguments that can be useful for E2E tests
+- Add STDOUT results parser for more flexible and detailed app response analysis
+
+### API part
+- Add keywords for POST, PUT, PATCH and DELETE HTTP methods for test coverage of all supported HTTP methods on current site
+- Add advanced helper and keywords for better serialization/deserialization of JSON objects
+
+### Common and CI parts
+- Extend data driven approach with CSV/XLS files support on located on cloud storage
+- Handle suite/tests Pre- and Post- conditions, e.g. tasks/DB deletion as post steps for CLI app (low priority now, since execution env on CI will be newly recreated for CI job and deleted after test execution )
+- Add robot test reports injection for commits used into main branch. Re-enable generate report Git action when current issue (cannot parse "" as "2006") in robotframework-reporter-action action will be fixed. https://github.com/MKargapoltsev/rasa/blob/4ad435909e82b97e785d65a25e8706d90d914a47/.github/workflows/robot-framework.yml#L30
+- Improve tests reports quality by integrating Allure test reports https://allurereport.org/docs/robotframework/
