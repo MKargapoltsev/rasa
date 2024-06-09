@@ -1,7 +1,8 @@
 # Rasa tech task implementation
 -----------------------
-[![Technical task](http://i.imgur.com/aImJD4o.png)](https://gist.github.com/sanchariGr/fa0e655ed27f3810e720ac85bbecf31b)
+[![Technical task](https://app.ashbyhq.com/api/images/org-theme-wordmark/f2967945-f798-41ce-ab41-cee387dab696/95f8882b-ddbd-4e24-bc04-c1d37f927131.png)](https://gist.github.com/sanchariGr/fa0e655ed27f3810e720ac85bbecf31b)
 
+[![SERVREST API](https://img.shields.io/badge/API-ServeRest-brightgreen)](https://github.com/PauloGoncalvesBH/ServeRest/)
 
 **Project structure**
 rasa
