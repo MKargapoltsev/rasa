@@ -24,7 +24,7 @@ jobs:
         - name: Publish test reports
           uses: actions/upload-artifact@v2
           with:
-            name: report.html
+            name: test report
             path: reports/report.html
 
     # Generate-report:
