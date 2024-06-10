@@ -166,8 +166,8 @@ python -m robot --outputdir reports tests/automated_CLI_tests.robot
 ```bash
 rm ~/.task/taskchampion.sqlite3
 ```
-> To run the tests using Git Actions just go to Actions section [go to Actions section](https://github.com/MKargapoltsev/rasa/actions/workflows/robot-framework.yml) and click **Run Workflow** button for main branch.
-> After job will be completed you can download Robot Framework test report from job Summary > Artifacts fot detailed analysis.
+> To run the tests using Git Actions just [go to Actions section](https://github.com/MKargapoltsev/rasa/actions/workflows/robot-framework.yml) and click **Run Workflow** button for main branch.
+> After job is completed you can download Robot Framework test report from job Summary > Artifacts fot detailed analysis.
  
 ## Future Improvements
 ### CLI part
