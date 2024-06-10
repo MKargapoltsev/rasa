@@ -112,8 +112,8 @@ rasa
 ### Files description
 | file path  | description |
 | ------------- | ------------- |
-| tests/automated_API_tests.robot  | robot frework test file that contains automated CLI tests  |
-| tests/automated_CLI_tests.robot  | robot frework test file that contains automated API tests  |
+| tests/automated_API_tests.robot  | robot frework test file that contains automated API tests  |
+| tests/automated_CLI_tests.robot  | robot frework test file that contains automated CLI tests  |
 | keywords/common.resource  | robot framework resource file that contains all keywords implementation that needed to run the tests  |
 | general.resource  | resoruce file that contains libraries, variables and test data   |
 | README.md  | document that contains all important information about tech task implementation |
@@ -135,8 +135,13 @@ source rasa-env/bin/Activate
 pip install -r requirements.txt
 ```
 >  Install Task warrior
+>  On Mac OS
 ```bash
 brew install task
+```
+>  On Linux
+```bash
+apt-get install taskwarrior -y
 ```
 >  If Task warrior app is newly installed - launch it first time manually to init DB and type 'yes' in confirmation field
 ```bash
