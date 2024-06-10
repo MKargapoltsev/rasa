@@ -21,7 +21,7 @@ The task number ${filter} should be ${output}
 
 #API tests keywords section
 Get Single User by _id
-    [Documentation]             Get data about a specific user by his ID
+    [Documentation]             Get data about a specific user by their ID
     [Arguments]                 ${ID}
     ${response}=                GET On Session    session                  /users/${ID} 
     Status Should Be            OK

@@ -135,12 +135,11 @@ source rasa-env/bin/Activate
 ```bash
 pip install -r requirements.txt
 ```
->  Install Task warrior
->  On Mac OS
+>  Install Task warrior - on Mac OS
 ```bash
 brew install task
 ```
->  On Linux
+>  or on Linux
 ```bash
 apt-get install taskwarrior -y
 ```
